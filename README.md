@@ -22,7 +22,7 @@
 3. `features`でClaude Codeのバージョンを指定
    - 今回は最新バージョンを指定
 4. `mounts`でマウントしたいホスト(Windows)側のファイルを指定
-   - 今回はC:\Users\user\devcontainer\claude内のディレクトリとファイルを指定
+   - 今回はC:\Users\user\devcontainer\claude内のディレクトリとファイルを指定(ホスト側に作成しておく)
 
 ## コンテナのビルド・接続
 1. VSCode左下の`><`ボタンから、「コンテナーで再度開く」をクリック
@@ -38,3 +38,5 @@ VSCode左下の`><開発コンテナー @ desktop-linux`から、「リモート
 ## 注意事項
 - プロジェクトを`.code-workspace`で開いていると、devcontainer.jsonが認識されない場合がある
    - プロジェクトディレクトリを直接開くと、問題なくコンテナに入れる
+- `devcontainer.json`の`localEnv:USERPROFILE`の部分がうまくパースされないことにより、同じ設定でも異なる環境でうまく動かないことがある
+  - `"mounts"`の部分を削除するか、パスを直接入力する(`.gitignore`でファイルの公開範囲を適切に設定しておく)
